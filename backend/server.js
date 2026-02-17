@@ -4,10 +4,8 @@ import express from "express";
 // Create a server called "app" using Express
 const app = express();
 
-// When someone visits "/api/notes", send them a message with the notes count
-app.get("/api/notes", (req,res)=>{
-    res.send("You got 7 notes..")
-});
+app.use("/api/notes", notesroutes);
+
 
 
 // A method used to listen incomming requests on ports 5000.
@@ -51,5 +49,5 @@ ERROR CODES
 
  */
 
- 
+
 
