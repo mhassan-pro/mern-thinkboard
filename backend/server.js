@@ -9,7 +9,33 @@ app.get("/api/notes", (req,res)=>{
     res.send("You got 6 notes..")
 });
 
+
 // A method used to listen incomming requests on ports 5000.
 app.listen(5000,()=>{
     console.log("Server is running on port 5000.");
 });
+
+
+/*
+ERROR CODES
+
+1: 100 is informational
+
+2: 200 code is for that everything is working as expected.
+2.1: 201 New resources are created successfully.
+
+3: 300 code is for redirection means the thing you are looking is someware else 
+3.1: 301 means the resource you are looking for is permanently moved to another location.
+
+4: 400 means Client Error. something goes wrong on client side .
+4.1: 400 bad request means the client sent something wrong to the server.
+4.2: 401 unauthorized means the client is not authorized to access the resource.
+4.3: 403 forbidden means the client is not allowed to access the resource.
+4.4: 404 not found means the resource you are looking for is not found on the server.
+4.5: 429 to many requests.
+
+5: 500 Server error. something got wrong on server side
+5.1: 500 internal error means something is broken on server side .
+5.2: 503 service unavailable means server is temp overloaded or down .
+
+*/ 
