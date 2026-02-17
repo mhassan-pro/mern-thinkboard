@@ -6,7 +6,7 @@ const app = express();
 
 // When someone visits "/api/notes", send them a message with the notes count
 app.get("/api/notes", (req,res)=>{
-    res.send("You got 6 notes..")
+    res.send("You got 7 notes..")
 });
 
 
@@ -39,3 +39,17 @@ ERROR CODES
 5.2: 503 service unavailable means server is temp overloaded or down .
 
 */ 
+
+
+/* What is Endpoint 
+  An endpoint is a specific URL (or path) on a server where the server listens
+    for requests and sends back responses.
+ -> an endpoint is a resturant
+ -> it is a specific table or counter where a customer can ask for something
+ -> in code : the URL/path you go to in, order to get or send data . 
+ -> each does a specific job send ,delete update or create data.
+
+ */
+
+ 
+
