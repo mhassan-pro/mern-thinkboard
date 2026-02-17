@@ -1,11 +1,12 @@
 // Import Express toolbox to create a web server
 import express from "express";
 
+import noteRoutes from "./routes/noteRoutes.js";
+
 // Create a server called "app" using Express
 const app = express();
 
-app.use("/api/notes", notesroutes);
-
+app.use(express.json("/api/notes", noteRoutes) );
 
 
 // A method used to listen incomming requests on ports 5000.
