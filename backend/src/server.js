@@ -1,13 +1,16 @@
 // Import Express toolbox to create a web server
 import express from "express";
-
 import noteRoutes from "./routes/noteRoutes.js";
-
 import connectDB from"../config/db.js";
+import dotenv from "dotenv";
+
+// use to get the enviorment variable from .env file and add them into process.env
+dotenv.config();
 
 // Create a server called "app" using Express
 const app = express();
 
+// connects te database using the connectDB function from db.js
 connectDB();
 
 app.use(express.json());
