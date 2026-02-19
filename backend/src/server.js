@@ -4,22 +4,20 @@ import noteRoutes from "./routes/noteRoutes.js";
 import connectDB from"../config/db.js";
 import dotenv from "dotenv";
 
-// use to get the enviorment variable from .env file and add them into process.env
-dotenv.config();
+dotenv.config();// use to get the enviorment variable from .env file and add them into process.env
 
-// Create a server called "app" using Express
-const app = express();
+const app = express();// Create a server called "app" using Express
+const PORT = process.env.PORT || 5000; 
 
-// connects te database using the connectDB function from db.js
-connectDB();
+connectDB();// connects te database using the connectDB function from db.js
 
 app.use(express.json());
 app.use("/api/notes", noteRoutes);
 
 
 // A method used to listen incomming requests on ports 5000.
-app.listen(5000,()=>{
-    console.log("Server is running on port 5000.");
+app.listen(PORT,()=>{
+    console.log("Server is running on port:",PORT);
 });
 
 
