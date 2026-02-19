@@ -3,10 +3,15 @@ import express from "express";
 
 import noteRoutes from "./routes/noteRoutes.js";
 
+import connectDB from"../config/db.js";
+
 // Create a server called "app" using Express
 const app = express();
 
-app.use(express.json("/api/notes", noteRoutes) );
+connectDB();
+
+app.use(express.json());
+app.use("/api/notes", noteRoutes);
 
 
 // A method used to listen incomming requests on ports 5000.
