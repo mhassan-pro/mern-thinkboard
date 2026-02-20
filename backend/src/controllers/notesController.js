@@ -3,7 +3,7 @@ import Note from "../../models/Note.js";
 
  export  const getAllNotes =async (req,res)=>{
     try{
-        const notes = await Note.findx();
+        const notes = await Note.find();
         res.status(200).json(notes);
 
     }
@@ -14,8 +14,21 @@ import Note from "../../models/Note.js";
 }
 
 
-export const createNote = (req,res)=>{
-    res.send("You created notes..")
+export const createNote = async(req,res)=>{
+    try{
+        const{title,content} = req.body;
+        console.log(title,content);
+        const newNote = new Note({title,content});
+
+       const savedNote = await newNote.save();
+
+        res.status (201).json(savedNote);
+
+    }
+    catch(error){
+        console.log ("Error in createNote controller:",error);
+        res.status(500).json({message:"Internal server error"});
+    }   
 };
 
 
