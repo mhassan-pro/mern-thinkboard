@@ -1,5 +1,16 @@
- export  const getAllNotes =  (req,res)=>{
-    res.send("You got 7 notes..")
+
+import Note from "../../models/Note.js";
+
+ export  const getAllNotes =async (req,res)=>{
+    try{
+        const notes = await Note.findx();
+        res.status(200).json(notes);
+
+    }
+    catch(error){
+        console.log("Error in getAllnotes controller:",error);
+        res.status(500).json({message:"Internal server error"});
+    }
 }
 
 
