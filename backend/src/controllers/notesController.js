@@ -4,7 +4,7 @@ import Note from "../../models/Note.js";
 // to get all the notes at once
  export  const getAllNotes =async (req,res)=>{
     try{
-        const notes = await Note.find();
+        const notes = await Note.find().sort(createdAt(-1));
         res.status(200).json(notes);
 
     }
@@ -15,7 +15,7 @@ import Note from "../../models/Note.js";
 }
 
 
-// to get a note by it's id
+// to get a notes by it's id
 export  const getNotesById =async (req,res)=>{
     try{
         const notesById = await Note.findById(req.params.id);
@@ -32,7 +32,7 @@ export  const getNotesById =async (req,res)=>{
 }
 
 
-
+// create a new note 
 export const createNote = async(req,res)=>{
     try{
         const{title,content} = req.body;
@@ -67,7 +67,7 @@ export const updateNote = async(req,res)=>{
     }
 }
 
-
+// delete notes
 export const deleteNote =async (req,res)=>{
 
     try{
