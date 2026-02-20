@@ -1,6 +1,7 @@
 
 import Note from "../../models/Note.js";
 
+// to get all the notes at once
  export  const getAllNotes =async (req,res)=>{
     try{
         const notes = await Note.find();
@@ -12,6 +13,24 @@ import Note from "../../models/Note.js";
         res.status(500).json({message:"Internal server error"});
     }
 }
+
+
+// to get a note by it's id
+export  const getNotesById =async (req,res)=>{
+    try{
+        const notesById = await Note.findById(req.params.id);
+        if(!notesById){
+            res.status(404).json({message:"Note not found"});
+        }
+        res.status(200).json({message:"desired note get fetched", notesById});
+
+    }
+    catch(error){
+        console.log("Error in getAllnotes controller:",error);
+        res.status(500).json({message:"Internal server error"});
+    }
+}
+
 
 
 export const createNote = async(req,res)=>{
